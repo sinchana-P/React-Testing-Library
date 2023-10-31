@@ -1,14 +1,11 @@
-// type GreetProps = {
-//     name?: string
-// }
+// v14 - Code Coverage
 
 import { GreetProps } from './greet.types'
 
 const GreetThree = (props: GreetProps) => {
   return (
     <div>
-      {/* Hello Lily */}
-      Hello {props.name}
+      Hello {props.name ? props.name : 'Guest'}
     </div>
   )
 }
