@@ -10,11 +10,10 @@ describe.only('Greet' , () => {
         const textElement = screen.getByText(/Hello/)
         expect(textElement).toBeInTheDocument()   // Assertion - matcher function
     })
-})
+})                
 
 
 // -------------------------------
-
 
 // Output for this:
 // "jest": {
