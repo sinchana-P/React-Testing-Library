@@ -8,7 +8,7 @@ describe.only('Greet' , () => {
             render(<GreetThree />)
         // const textElement = screen.getByText('Hello')
         const textElement = screen.getByText(/Hello/)
-        expect(textElement).toBeInTheDocument()
+        expect(textElement).toBeInTheDocument()   // Assertion - matcher function
     })
 })
 
