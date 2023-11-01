@@ -66,3 +66,17 @@ toHaveDescription
 - https://www.w3.org/TR/html-aria/#docconformance
 
 - https://testing-library.com/docs/queries/byrole
+
+# getByRole options
+
+getByRole Options
+name
+level
+hidden
+selected
+checked
+pressed
+
+# Note:
+
+- getByRole : shd be ur top preference
