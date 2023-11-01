@@ -82,7 +82,14 @@ describe('Appliaction', () => {
         // 4. getByText
         const paragraphElement = screen.getByText("All fields are mandatory")
         expect(paragraphElement).toBeInTheDocument()
+
+        // 5. getByDisplayValue
+        const nameElement4 = screen.getByDisplayValue('lily')
+        expect(nameElement4).toBeInTheDocument()
         
+        // 6. getByAltText
+        const imageElement = screen.getByAltText('a person with a laptop')
+        expect(imageElement).toBeInTheDocument()
     }) 
 
 })

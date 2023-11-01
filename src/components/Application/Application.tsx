@@ -4,14 +4,15 @@ export const Application = () => {
       <h1>Job application form</h1>
       <h2>Section 1</h2>
       <p>All fields are mandatory</p>
+      <img src="" alt="a person with a laptop" />
       <form>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="text" id="name" />
+          <input type="text" id="name" placeholder="Fullname" value='lily' onChange={() => {}}/>
         </div>
         <div>
           <label htmlFor="bio">Bio</label>
-          <textarea id='bio' name='bio' placeholder="Fullname"/>
+          <textarea id='bio' name='bio' />
         </div>
         <div>
           <label htmlFor="job-location">Job Location</label>
