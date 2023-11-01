@@ -4,6 +4,7 @@ import { Application } from './Application'
 describe('Appliaction', () => {
     test('renders correctly', () => {
         render(<Application />);
+        // 1. getByRole & its options
 
         // // For headings
         // const pageHeading = screen.getByRole('heading', {
@@ -33,14 +34,13 @@ describe('Appliaction', () => {
         const nameElement = screen.getByRole("textbox", {
             name: 'Name',
         });
-        expect(nameElement).toBeInTheDocument()
+        expect(nameElement).toBeInTheDocument()  
 
         // for bio element
         const bioElement = screen.getByRole('textbox', {
             name: 'Bio',
         })
         expect(bioElement).toBeInTheDocument()
-
 
         // for drop-down
         const jobLocationElement = screen.getByRole("combobox");
@@ -53,7 +53,27 @@ describe('Appliaction', () => {
         // for submit button
         const submitButtonElement = screen.getByRole('button')
         expect(submitButtonElement).toBeInTheDocument()
-    })
+
+        // 2. getByLabelText
+        const nameElement2 = screen.getByLabelText("Name")
+        expect(nameElement2).toBeInTheDocument()
+                // here "Name" is the label that corresponds to the input element, 
+                // getByLabelText: will find the label element,
+                // & then find the input associated with the label,
+                // id & htmlFor, will help with that.
+
+        // getByLabelText : also works with wrapper labels.
+        const termsElement2 = screen.getByLabelText('I agree to the terms and conditions')
+        expect(termsElement2).toBeInTheDocument() 
+        
+        // there may be 2 labels (2 elements) with same label name, 
+        // then we can select specific by using selector.
+        const nameElement21 = screen.getByLabelText("Name", {
+            selector: 'input'
+        })
+        expect(nameElement21).toBeInTheDocument()
+    }) 
+
 })
 
 //  PASS  src/components/Application/Application.test.tsx
