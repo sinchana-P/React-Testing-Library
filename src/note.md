@@ -62,3 +62,7 @@ toHaveDescription
 - check this file:
 - setupTests.ts
 
+# to get all the Roles of Elements
+- https://www.w3.org/TR/html-aria/#docconformance
+
+- https://testing-library.com/docs/queries/byrole
