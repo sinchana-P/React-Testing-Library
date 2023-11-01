@@ -6,7 +6,7 @@
 4. getByText
 5. getByDisplayValue
 6. getByAltText
-7. 
+7. getByTitle
 
 
 
