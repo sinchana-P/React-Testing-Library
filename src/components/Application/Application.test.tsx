@@ -4,6 +4,8 @@ import { Application } from './Application'
 describe('Appliaction', () => {
     test('renders correctly', () => {
         render(<Application />);
+        
+        // Query Methods:
         // 1. getByRole & its options
 
         // // For headings
@@ -72,6 +74,10 @@ describe('Appliaction', () => {
             selector: 'input'
         })
         expect(nameElement21).toBeInTheDocument()
+
+        // 3. getByPlaceholderText
+        const nameElement3 = screen.getByPlaceholderText("Fullname")
+        expect(nameElement3).toBeInTheDocument()
     }) 
 
 })

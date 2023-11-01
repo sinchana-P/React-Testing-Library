@@ -10,7 +10,7 @@ export const Application = () => {
         </div>
         <div>
           <label htmlFor="bio">Bio</label>
-          <textarea id='bio' name='bio' />
+          <textarea id='bio' name='bio' placeholder="Fullname"/>
         </div>
         <div>
           <label htmlFor="job-location">Job Location</label>
