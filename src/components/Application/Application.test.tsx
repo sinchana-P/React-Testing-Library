@@ -95,6 +95,10 @@ describe('Appliaction', () => {
         const titleElement = screen.getByTitle('close')
         expect(titleElement).toBeInTheDocument()
 
+        // 8. getByTestId
+        const customElement = screen.getByTestId('custom-element')
+        expect(customElement).toBeInTheDocument()
+
     }) 
 
 })
