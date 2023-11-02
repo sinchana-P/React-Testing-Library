@@ -1,7 +1,7 @@
 import {render, screen} from '@testing-library/react'
 import { Application } from './Application'
 
-describe('Appliaction', () => {
+describe('Application', () => {
     test('renders correctly', () => {
         render(<Application />);
         
