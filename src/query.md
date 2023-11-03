@@ -108,4 +108,12 @@ DOM after some time?
 For example, data that is fetched from a server will be rendered only after a few
 milliseconds
 
-# 
+# Chrome Extension: Testing Playground
+
+# Section Summary
+Query multiple elements
+queryBy and queryAllBy
+findBy and findAllBy
+Manual queries
+Debug tests
+Testing playground extension
