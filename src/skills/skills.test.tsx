@@ -1,14 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, logRoles } from '@testing-library/react'
 import { Skills } from './skills'
 
 describe('Skills', () => {
     const skills = ["HTML", "CSS", "JavaScript"]
 
-    // test("Renders Correctly", () => {
-    //     render(<Skills skills={skills}/>)
-    //     const listElement = screen.getByRole('list')
-    //     expect(listElement).toBeInTheDocument()
-    // })
+    test("Renders Correctly", () => {
+        render(<Skills skills={skills}/>)
+        const listElement = screen.getByRole('list')
+        expect(listElement).toBeInTheDocument()
+    })
 
     test('renders a list of skills', () => {
         render(<Skills skills={skills} />)
@@ -55,4 +55,108 @@ describe('Skills', () => {
         })
         expect(startlearningButton).toBeInTheDocument()
     })
+
+    // Debugging: 
+    // screen.debug(): using this we r being able to visualize the dom at any given point in the test (is helpful in debugging)
+        // for Start Learning button, having setTimeout
+        test('Start learning button is eventually displayed using Debugging', async() => {
+            render(<Skills skills={skills}/>);
+            screen.debug()
+            const startlearningButton = await screen.findByRole(
+                'button', 
+            {
+                name: "Start Learning",
+            },{
+                timeout: 2000
+            })
+            screen.debug()
+            expect(startlearningButton).toBeInTheDocument()
+        })
+
+        // o/p:
+    //     console.log
+    //     <body>
+    //       <div>
+    //         <ul>
+    //           <li>
+    //             HTML
+    //           </li>
+    //           <li>
+    //             CSS
+    //           </li>
+    //           <li>
+    //             JavaScript
+    //           </li>
+    //         </ul>
+    //         <ul>
+    //           <button>
+    //             Login
+    //           </button>
+    //         </ul>
+    //       </div>
+    //     </body>
+        
+    //   console.log
+    //     <body>
+    //       <div>
+    //         <ul>
+    //           <li>
+    //             HTML
+    //           </li>
+    //           <li>
+    //             CSS
+    //           </li>
+    //           <li>
+    //             JavaScript
+    //           </li>
+    //         </ul>
+    //         <ul>
+    //           <button>
+    //             Start Learning
+    //           </button>
+    //         </ul>
+    //       </div>
+    //     </body>
+
+        test('Start learning button is eventually displayed using logRoles', async() => {
+            const view = render(<Skills skills={skills}/>);
+            logRoles(view.container)
+            
+            const startlearningButton = await screen.findByRole(
+                'button', 
+            {
+                name: "Start Learning",
+            },{
+                timeout: 2000
+            })
+            expect(startlearningButton).toBeInTheDocument()
+        })
+
+        // o/p:
+        // console.log
+        // list:
+    
+        // Name "":
+        // <ul />
+    
+        // --------------------------------------------------
+        // listitem:
+    
+        // Name "":
+        // <li />
+    
+        // Name "":
+        // <li />
+    
+        // Name "":
+        // <li />
+    
+        // --------------------------------------------------
+        // button:
+    
+        // Name "Login":
+        // <button />
+
+        
+
 })

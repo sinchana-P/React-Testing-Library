@@ -17,8 +17,7 @@ export const Skills = (props: SkillsProps) => {
         {skills.map((skill) => {
             return <li key={skill}>{skill}</li>
         })}
-      </ul>
-      <ul>
+        
         {isLoggedIn ? (
           <button>Start Learning</button>
         ) : (
