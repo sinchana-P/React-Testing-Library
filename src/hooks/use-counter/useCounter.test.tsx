@@ -28,10 +28,25 @@ describe('useCounter', () => {
     expect(result.current.count).toBe(10)
   })
 
+  test('3. should increment the count', () => {
+    const { result } = renderHook(useCounter)
+    // result.current.increment()  // test fails 
+    // warning from RTL: An update to TestComponent inside a test was not wrapped in act(...),
+    // When  testing, code that causes React state updates should be wrapped into act(...)
+    // refer - act(): https://legacy.reactjs.org/docs/testing-recipes.html
+    // In summary: act() - is a function that ensures, "updates" are processed, before "assertions" are made.
+    act(() => result.current.increment())
+    expect(result.current.count).toBe(1)
+  })
 
+  test('4. should decrement the count', () => {
+    const { result } = renderHook(useCounter)
+    act(() => result.current.decrement())
+    expect(result.current.count).toBe(-1)
+  })
 })
 
-// Summary:
+// Summary of renderHook():
 // For testing react hooks, we do not rely on screen & render from testing - library
 // Instead we rely on render hook which returns a result,
 //  which in turn contains a current property,
@@ -39,3 +54,20 @@ describe('useCounter', () => {
 
 // And if u have to invoke the hook with props u can pass in an options object
 // to render with a hook with a key called initial props.
+
+
+// Summary of act():
+// When testing "Custom hooks" more specifically, "code" that causes state updates, RTL cannot wrap them with "act" utility function,
+// We have to "MANUALLY" import it & wrap code that causes state updates 
+
+// For the most part RTL wraps every method it exposes within act.
+
+// Having to manually import & use it is one of the scenario.
+
+// here, increment(): is calling another setter function, which causing the change in state.
+
+// Section Summary
+// 1. Wrapper option for providers - to provide context
+// 2. Custom render function - to wrap all tests with a given provider
+// 3. Test custom react hooks - with renderHook
+// 4. act utility
