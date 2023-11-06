@@ -1,3 +1,4 @@
+```rust
 PASS  src/components/Application/Application.test.tsx (7.073 s)
 PASS  src/hooks/use-counter/useCounter.test.tsx
 PASS  src/__tests__/greet-test.tsx
@@ -19,3 +20,4 @@ PASS  src/components/mui/MuiMode.test.tsx
 # Snapshots:   0 total
 # Time:        30.507 s
 # Ran all test suites.
+```

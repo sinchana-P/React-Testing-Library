@@ -8,30 +8,31 @@ describe('Application', () => {
         // Query Methods:
         // 1. getByRole & its options
 
-        // // For headings
-        // const pageHeading = screen.getByRole('heading', {
-        //     name: "Job application form"
-        // })
-        // expect(pageHeading).toBeInTheDocument()
-
-        // // for section heading
-        // const sectionHeading = screen.getByRole('heading', {
-        //     name: 'Section 1'
-        // })
-        // expect(sectionHeading).toBeInTheDocument()
-
+        // "name"
         // For headings
-        // Instead of name, use "level"
         const pageHeading = screen.getByRole('heading', {
-            level: 1
+            name: "Job application form"
         })
         expect(pageHeading).toBeInTheDocument()
 
         // for section heading
         const sectionHeading = screen.getByRole('heading', {
-            level: 2
+            name: 'Section 1'
         })
         expect(sectionHeading).toBeInTheDocument()
+
+        // For headings
+        // Instead of name, use "level"
+        const pageHeading2 = screen.getByRole('heading', {
+            level: 1
+        })
+        expect(pageHeading2).toBeInTheDocument()
+
+        // for section heading
+        const sectionHeading2 = screen.getByRole('heading', {
+            level: 2
+        })
+        expect(sectionHeading2).toBeInTheDocument()
         
         const nameElement = screen.getByRole("textbox", {
             name: 'Name',

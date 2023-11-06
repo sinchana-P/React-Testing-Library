@@ -24,7 +24,7 @@ unhover()
 
 pointer({keys: '[MouseLeft]'})
 pointer({keys: [MouseLeft][Mouseright]})
-pointer ('[MouseLeft][Mouseright]')
+pointer('[MouseLeft][Mouseright]')
 pointer( [MouseLeft>])          // without releasing
 pointer('[/MouseLeft]')         // Just releasing the previously pressed button
 
@@ -32,9 +32,8 @@ pointer('[/MouseLeft]')         // Just releasing the previously pressed button
 
 # Utility API
 type()
-# Convenience AP!
+# Convenience API
 tab()
-
 
 Keyboard Interactions
 # Utility API
@@ -43,9 +42,9 @@ clear()
 •
 test('clear', async () => {
 render(<textarea defaultValue="Hello, World!" />)
-await userEvent. clear( screen.getByRole( textbox'))
-expect (screen. getByRole( textbox' )). toHaveValue('')
-})
+await userEvent. clear( screen.getByRole('textbox'))
+expect (screen. getByRole('textbox')).toHaveValue('')
+}) 
 
 Keyboard Interactions
 # Utility API
@@ -80,3 +79,6 @@ Keyboard type and tab events
 Convenience APIs, utility APIs, clipboard APIs
 Pointer and keyboard APIs
 
+
+
+```

@@ -9,10 +9,9 @@
 7. getByTitle
 8. getByTestId
 
-
 # 1. getByRole options
 
-getByRole Options
+- getByRole Options
 name
 level
 hidden
@@ -108,6 +107,9 @@ DOM after some time?
 For example, data that is fetched from a server will be rendered only after a few
 milliseconds
 
+- Solution:
+- findBy & findAllBy class of queries
+
 # Chrome Extension: Testing Playground
 
 # Section Summary
@@ -117,4 +119,5 @@ findBy and findAllBy
 Manual queries
 Debug tests
 Testing playground extension
+
 

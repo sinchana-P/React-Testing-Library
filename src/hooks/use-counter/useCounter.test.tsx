@@ -7,17 +7,6 @@ describe('useCounter', () => {
     const { result } = renderHook(useCounter)
     expect(result.current.count).toBe(0)
   })
-  // render(useCounter) : Typescript throws an error, coz
-  // note: Custom Hook does not return any JSX
-  // Also a hook can not be called outside a function component
-  // Solution: renderHook 
-  // But unlike a regular component, which can be asserted using screen,
-  // Hooks do not have any DOM elements
-  // Instead renderHook wrap the hook in a function component,
-  // Invoke the hook & returns an object,
-  // From which we can destructure aa property called "result".
-  // on this result, there exist a property called "current",
-  // Which will contain all the "return" values from hook
 
   test('2. should accept and render the same initial count', () => {
     // To pass in a prop to useCount, by specifying 2nd argument: "options" object
@@ -30,11 +19,6 @@ describe('useCounter', () => {
 
   test('3. should increment the count', () => {
     const { result } = renderHook(useCounter)
-    // result.current.increment()  // test fails 
-    // warning from RTL: An update to TestComponent inside a test was not wrapped in act(...),
-    // When  testing, code that causes React state updates should be wrapped into act(...)
-    // refer - act(): https://legacy.reactjs.org/docs/testing-recipes.html
-    // In summary: act() - is a function that ensures, "updates" are processed, before "assertions" are made.
     act(() => result.current.increment())
     expect(result.current.count).toBe(1)
   })
@@ -45,6 +29,54 @@ describe('useCounter', () => {
     expect(result.current.count).toBe(-1)
   })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ---------
+// test('1. should render the initial count', () => {
+//   // render(useCounter)
+//   const { result } = renderHook(useCounter)
+//   expect(result.current.count).toBe(0)
+// })
+
+// render(useCounter) : Typescript throws an error, coz
+// note: Custom Hook does not return any JSX
+// Also a hook can not be called outside a function component
+// Solution: renderHook 
+// But unlike a regular component, which can be asserted using screen,
+// Hooks do not have any DOM elements
+// Instead renderHook wrap the hook in a function component,
+// Invoke the hook & returns an object,
+// From which we can destructure aa property called "result".
+// on this result, there exist a property called "current",
+// Which will contain all the "return" values from hook
+// ---------
+
+// -----------
+
+// test('3. should increment the count', () => {
+//   const { result } = renderHook(useCounter)
+  //   // result.current.increment()  // test fails 
+  //   // warning from RTL: An update to TestComponent inside a test was not wrapped in act(...),
+  //   // When  testing, code that causes React state updates should be wrapped into act(...)
+  //   // refer - act(): https://legacy.reactjs.org/docs/testing-recipes.html
+  //   // In summary: act() - is a function that ensures, "updates" are processed, before "assertions" are made.
+//   act(() => result.current.increment())
+//   expect(result.current.count).toBe(1)
+// })
+
+// -----------
+
 
 // Summary of renderHook():
 // For testing react hooks, we do not rely on screen & render from testing - library
